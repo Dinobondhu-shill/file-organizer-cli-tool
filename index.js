@@ -32,3 +32,20 @@ const testFiles = [
   "random.xyz",
   "nodejs.zip",
 ];
+
+
+const initializedDir = () =>{
+
+if(!fs.existsSync(sourceDir)){
+    fs.mkdirSync(sourceDir, {recursive: true});
+
+
+    testFiles.forEach((file)=>{
+        if(!fs.existsSync(file)){
+            fs.writeFileSync(path.join(sourceDir, file), `This is a cover about ${file}`);
+        }
+    })
+}
+
+}
+initializedDir()
