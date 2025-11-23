@@ -47,5 +47,18 @@ if(!fs.existsSync(sourceDir)){
     })
 }
 
+if(!fs.existsSync(organizedDir)){
+    fs.mkdirSync(organizedDir, {recursive:true});
 }
-initializedDir()
+
+Object.keys(categories).forEach((category)=>{
+    const categoryPath = path.join(organizedDir, category)
+    if(!fs.existsSync(categoryPath)){
+        fs.mkdirSync(categoryPath)
+    }
+    
+})
+
+}
+
+initializedDir();
